@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { postAuthor } from '../../services/authorsApi';
+import { useDispatch } from 'react-redux';
+import { addAuthor } from '../../actions/authorActions';
 
 const AuthorForm = () => {
   const [name, setName] = useState('');
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
     postAuthor({name})
       .then(author => {
+        dispatch(addAuthor(author))
         // add author to redux
       })
   };
