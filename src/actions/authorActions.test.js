@@ -1,3 +1,5 @@
+import {addAuthor, ADD_AUTHOR} from "./authorActions";
+
 describe('author actions', () => {
   it('creates an ADD_AUTHOR action', () => {
     const action = addAuthor({
@@ -6,8 +8,11 @@ describe('author actions', () => {
     });
 
     expect(action).toEqual({
-      _id: 'jdks5u0',
-      name: 'Ryan Mehta'
+      type: ADD_AUTHOR,
+      payload: {
+        _id: 'jdks5u0',
+        name: 'Ryan Mehta'
+      }
     });
   });
 });
