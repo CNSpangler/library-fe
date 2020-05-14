@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AuthorForm = () => {
   const [name, setName] = useState('');
+  const handleSubmit = e => {
+    e.preventDefault();
+
+  };
+
   return (
-    <form>
-      <input type="name" value={} onChange={({target}) => setName(target.value)} placeholder="Author Name" />
+    <form onSubmit={handleSubmit}>
+      <input type="name" value={name} onChange={({ target }) => setName(target.value)} placeholder="Author Name" />
+      <button>Add Author</button>
     </form>
   );
 };
